@@ -1,0 +1,42 @@
+//given a string s and a string t, check if s is subsequence of t
+class Solution 
+{
+public:
+    bool isSubsequence(string s, string t) 
+    {
+        int s_len=s.length();
+        int t_len=t.length();
+        char s_arr[s_len+1];
+        char t_arr[t_len+1];
+        strcpy(s_arr,s.c_str());
+        strcpy(t_arr,t.c_str());
+        int flag=1;
+        int i=0;
+        int j=0;
+        while(i<s_len)
+        {
+            while(s_arr[i]!=t_arr[j])
+            {
+                j=j+1;
+                if(j>=t_len)
+                {
+                    flag=0;
+                    return flag;
+                }
+            }
+            i=i+1;
+            if(i==s_len)
+            {
+                flag=1;
+                return flag;
+            }
+            j=j+1;
+            if(j>=t_len)
+            {
+                flag=0;
+                return flag;
+            }
+        }
+        return flag;
+    }
+};
