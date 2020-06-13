@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
+        int j=prices.size();
+        int i;
+        int k,m;
+        vector <int> vector;
+        for(k=0;k<j;k++)
+        {
+            int flag=0;
+            for(i=k+1;i<j;i++)
+            {
+                if(prices[k]>=prices[i])
+                {
+                    flag=1;
+                    m=prices[k]-prices[i];
+                    vector.push_back(m);
+                    break;
+                }
+
+            }
+            if(flag==0)
+            {
+                vector.push_back(prices[k]);
+            }
+        }
+        return vector;
+    }
+};
